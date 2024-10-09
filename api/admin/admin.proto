@@ -84,9 +84,9 @@ message CreatePolicyReq {
 service user {
   // The login interface does not need to be automatically generated, it has been written in the jwt middleware
   // Log in | 登录
-  rpc Login(LoginReq) returns (LoginResp) {
-    option (api.post) = "/api/login";
-  }
+  // rpc Login(LoginReq) returns (LoginResp) {
+  //   option (api.post) = "/api/login";
+  // }
   // Register | 注册
   rpc Register(RegisterReq) returns (base.BaseResp) {
     option (api.post) = "/api/register";

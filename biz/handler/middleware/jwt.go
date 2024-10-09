@@ -1,11 +1,3 @@
-/*
- * Copyright 2023 CoolFunAdmin Authors
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- */
-
-// package middleware provides the middleware for the service http handler.
-
 package middleware
 
 import (
