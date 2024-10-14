@@ -48,7 +48,7 @@ Casbin:
 
 # Simple Storage Service
 S3:
-  Type: "AliyunOSS"
+  Type: "Local"
   AliyunOSS:
     Endpoint: "oss-cn-shenzhen.aliyuncs.com"
     BucketName: "xxxxx"
@@ -56,3 +56,5 @@ S3:
     SecretID: "LTAI5t9YQEF4uAxxxxxxxxxxxx"
     SecretKey: "WUintXCcccuwFWOV8FAxxxxxxxxxxxx"
     Domain: "oss.xxx.com"
+  Local:
+    BasePath: "files" ## 相对路径

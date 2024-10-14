@@ -11,16 +11,19 @@ import (
 	"coolfun-admin/data/s3"
 )
 
-// fileStore offers file store interface
-var fileStore *FileAdapter
+// FileStore offers file store interface (大写以导出变量)
+var FileStore *FileAdapter
 
 func initFileStore() {
-	fileStore = NewFileAdapter(configs.Data())
+	FileStore = NewFileAdapter(configs.Data())
 }
 
-// FileStore Get a default file store instance
-func FileStore() *FileAdapter {
-	return fileStore
+// GetFileStore 返回一个默认的 file store 实例
+func GetFileStore() *FileAdapter {
+	if FileStore == nil {
+		initFileStore()
+	}
+	return FileStore
 }
 
 type FileAdapter struct {
@@ -31,6 +34,10 @@ func NewFileAdapter(c configs.Config) *FileAdapter {
 	if c.S3.Type == "AliyunOSS" {
 		return &FileAdapter{
 			Adapter: s3.NewUploadAliyunOSSAdapter(c),
+		}
+	} else if c.S3.Type == "Local" {
+		return &FileAdapter{
+			Adapter: s3.NewLocalFileAdapter(c.S3.Local.BasePath),
 		}
 	}
 	return nil
