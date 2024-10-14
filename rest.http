@@ -1,0 +1,3 @@
+curl -X POST http://localhost:8191/api/upload \
+-H "Content-Type: multipart/form-data" \
+-F "file=@./example.jpg"

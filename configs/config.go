@@ -143,4 +143,7 @@ type S3 struct {
 		SecretKey  string `yaml:"SecretKey"`
 		Domain     string `yaml:"Domain"`
 	} `yaml:"AliyunOSS"`
+	Local struct {
+		BasePath string `yaml:"BasePath"`
+	} `yaml:"Local"`
 }
